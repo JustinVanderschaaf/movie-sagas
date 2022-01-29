@@ -1,9 +1,24 @@
 .App {
   text-align: center;
 }
-
+header {
+  font-size: 74px;
+  color: rgb(204, 23, 23);
+}
+.movieList {
+  font-family: cursive;
+  font-size: 58px;
+  color: rgb(204, 23, 23);
+}
+body {
+  background-image: url(https://cdn.wallpapersafari.com/90/1/T5d7PW.jpg);
+  background-repeat: no-repeat;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  padding-left: 30px;
+}
 .box {
-  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .App-header {
   background-color: #222;
