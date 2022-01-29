@@ -3,6 +3,16 @@ import { useDispatch, useSelector } from "react-redux";
 import "./MovieList.css";
 import { useHistory } from "react-router-dom";
 
+// Import MUI components
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+
 function MovieList() {
   const dispatch = useDispatch();
   const movies = useSelector((store) => store.movies);
@@ -15,7 +25,6 @@ function MovieList() {
   function getDetails(movie) {
     console.log("click", movie.id);
     history.push("/details");
-    
   }
 
   return (
@@ -24,16 +33,17 @@ function MovieList() {
       <section className="movies">
         {movies.map((movie) => {
           return (
-            //
-            <div key={movie.id}>
-              <h3>{movie.title}</h3>
-              {/* on click sends the id of the movie clicked to function listed */}
-              <img
-                src={movie.poster}
-                alt={movie.title}
-                onClick={() => getDetails(movie)}
-              />
-            </div>
+            <Card sx={{ maxWidth: 220 }} key={movie.id}>
+              <CardActionArea onClick={() => getDetails(movie)}>
+                <h3>{movie.title}</h3>
+                <CardMedia
+                  component="img"
+                  height="350"
+                  image={movie.poster}
+                  alt={movie.title}
+                />
+              </CardActionArea>
+            </Card>
           );
         })}
       </section>
