@@ -44,8 +44,8 @@ function MovieList() {
             <Box className="box" sx={{ flexGrow: 1 }} key={movie.id}>
               <Grid container spacing={2}>
                 <Grid item xs={8} md={10}>
-                  <Card sx={{ maxWidth: 240 }}>
-                    <CardActionArea onClick={() => getDetails(movie)}>
+                  <Card  sx={{ maxWidth: 240 }}>
+                    <CardActionArea  id="card" onClick={() => getDetails(movie)}>
                       <h3>{movie.title}</h3>
                       <CardMedia
                         component="img"

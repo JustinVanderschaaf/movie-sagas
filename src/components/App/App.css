@@ -2,13 +2,17 @@
   text-align: center;
 }
 header {
-  font-size: 74px;
-  color: rgb(204, 23, 23);
+  padding-top: 80px;
+  font-family: cursive;
+  font-size: 84px;
+  color: rgb(97, 8, 8);
+  font-weight: bolder;
 }
 .movieList {
+  margin-top: 0px;
   font-family: cursive;
-  font-size: 58px;
-  color: rgb(204, 23, 23);
+  font-size: 38px;
+  color: rgb(97, 8, 8);
 }
 body {
   background-image: url(https://cdn.wallpapersafari.com/90/1/T5d7PW.jpg);
@@ -42,4 +46,9 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+#card {
+  background-color: rgb(97, 8, 8);
+  color: white;
 }
