@@ -32,9 +32,9 @@ function MovieList() {
 
   const handleSelectMovie = (movie) => {
     // store selected pet object in Redux
-    dispatch({ type: 'SET_SELECTED_MOVIE', payload: movie });
+    dispatch({ type: "SET_SELECTED_MOVIE", payload: movie });
     // go to details view
-    history.push('/details');
+    history.push("/details");
   };
 
   return (
@@ -46,8 +46,11 @@ function MovieList() {
             <Box className="box" sx={{ flexGrow: 1 }} key={movie.id}>
               <Grid container spacing={2}>
                 <Grid item xs={8} md={10}>
-                  <Card  sx={{ maxWidth: 240 }}>
-                    <CardActionArea  id="card" onClick={() => handleSelectMovie(movie)}>
+                  <Card sx={{ maxWidth: 240 }}>
+                    <CardActionArea
+                      id="card"
+                      onClick={() => handleSelectMovie(movie)}
+                    >
                       <h3>{movie.title}</h3>
                       <CardMedia
                         component="img"

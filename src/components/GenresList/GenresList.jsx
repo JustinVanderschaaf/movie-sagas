@@ -13,7 +13,12 @@ function GenresList() {
     <div className="genresCont">
       <h2>Genres</h2>
       {genres.map((gen) => {
-        return <h3 className="genres"key={gen.name}> {gen.name} </h3>;
+        return (
+          <h3 className="genres" key={gen.name}>
+            {" "}
+            {gen.name}{" "}
+          </h3>
+        );
       })}
     </div>
   );

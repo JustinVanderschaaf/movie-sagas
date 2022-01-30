@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import GenresList from "../GenresList/GenresList"
+import GenresList from "../GenresList/GenresList";
 
 //Import for MUI
 import Card from "@mui/material/Card";
@@ -21,13 +21,10 @@ function Details() {
     history.push("/");
   }
 
-
-
   useEffect(() => {
     dispatch({ type: "FETCH_GENRES", payload: selectedMovie.id });
-    console.log("THIS IS THE GENRE OBJECT",genres);
+    console.log("THIS IS THE GENRE OBJECT", genres);
   }, []);
-
 
   return (
     <main id="mainDesc">
@@ -48,11 +45,9 @@ function Details() {
       </Box>
 
       <h3 className="selectedDesc">{selectedMovie.description}</h3>
+      <GenresList />
 
-      <h4>{}</h4>
       <button onClick={home}>Back to Movies</button>
-      <GenresList/>
-      
     </main>
   );
 }
