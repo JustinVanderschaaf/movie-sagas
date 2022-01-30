@@ -52,3 +52,15 @@ body {
   background-color: rgb(97, 8, 8);
   color: white;
 }
+#detailsCard{
+  margin-left: 45%;
+  background-color: rgb(97, 8, 8);
+  color: white;
+}
+
+.selectedDesc{
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 0px;
+}
