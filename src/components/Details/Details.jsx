@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import GenresList from "../GenresList/GenresList"
 
+//Import for MUI
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
@@ -12,11 +14,20 @@ import Grid from "@mui/material/Grid";
 
 function Details() {
   const selectedMovie = useSelector((store) => store.selectedMovie);
+  const genres = useSelector((store) => store.genres);
   const dispatch = useDispatch();
   let history = useHistory();
   function home() {
     history.push("/");
   }
+
+
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_GENRES", payload: selectedMovie.id });
+    console.log("THIS IS THE GENRE OBJECT",genres);
+  }, []);
+
 
   return (
     <main id="mainDesc">
@@ -38,7 +49,10 @@ function Details() {
 
       <h3 className="selectedDesc">{selectedMovie.description}</h3>
 
+      <h4>{}</h4>
       <button onClick={home}>Back to Movies</button>
+      <GenresList/>
+      
     </main>
   );
 }

@@ -64,3 +64,13 @@ body {
   margin-right: 10%;
   margin-top: 0px;
 }
+
+.genresCont{
+  color: white;
+}
+
+.genres{
+  color: white;
+  display: inline-block;
+  margin: 10px;
+}
