@@ -28,6 +28,7 @@ function MovieList() {
   //load movies on startup
   useEffect(() => {
     dispatch({ type: "FETCH_MOVIES" });
+    dispatch({ type: "FETCH_ALL_GENRES"});
   }, []);
 
   const handleSelectMovie = (movie) => {

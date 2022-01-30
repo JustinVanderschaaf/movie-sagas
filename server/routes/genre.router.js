@@ -23,3 +23,16 @@ router.get("/:genId", (req, res) => {
 });
 
 module.exports = router;
+
+router.get("/", (req, res) => {
+  let query = 'SELECT * FROM "genres"';
+  pool
+    .query(query)
+    .then((result) => {
+      res.send(result.rows);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});

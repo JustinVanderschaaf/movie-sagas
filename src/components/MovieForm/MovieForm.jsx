@@ -6,14 +6,16 @@ import { useHistory } from "react-router-dom";
 function MovieForm() {
   const dispatch = useDispatch();
   let history = useHistory();
+
+  const genres = useSelector((store) => store.genres);
   let [title, setTitle] = useState("");
   let [poster, setPoster] = useState("");
   let [description, setDescription] = useState("");
   let [genre_id, setGenre_id] = useState(0);
 
   const handleClick = () => {
-    console.log("new movie", name);
-    dispatch({ type: "ADD_MOVIE", payload: { name, owner_id } });
+    console.log("new movie", title,poster,description);
+    dispatch({ type: "ADD_MOVIE", payload: { title,poster,description, genre_id } });
   };
 
   //allow user to click button to return to home page
@@ -43,21 +45,21 @@ function MovieForm() {
         onChange={(evt) => setDescription(evt.target.value)}
       />
 
-      {/* drop down with owner names */}
+      {/* drop down with genre names */}
       <select
         value={genre_id}
         onChange={(evt) => setGenre_id(evt.target.value)}
       >
-        {/* <option disabled value='0'>
+        <option disabled value="0">
           Pick One!
         </option>
-        {owners.map((owner) => {
+        {genres.map((genre) => {
           return (
-            <option key={owner.id} value={owner.id}>
-              {owner.name}
+            <option key={genre.id} value={genre.id}>
+              {genre.name}
             </option>
           );
-        })} */}
+        })}
       </select>
 
       <button onClick={handleClick}>Add Movie!</button>
