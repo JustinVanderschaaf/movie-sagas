@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+//MUI import
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+
 function MovieForm() {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -13,9 +17,13 @@ function MovieForm() {
   let [description, setDescription] = useState("");
   let [genre_id, setGenre_id] = useState(0);
 
+  //on submit send new movie data
   const handleClick = () => {
-    console.log("new movie", title,poster,description);
-    dispatch({ type: "ADD_MOVIE", payload: { title,poster,description, genre_id } });
+    console.log("new movie", title, poster, description);
+    dispatch({
+      type: "ADD_MOVIE",
+      payload: { title, poster, description, genre_id },
+    });
   };
 
   //allow user to click button to return to home page
@@ -38,12 +46,6 @@ function MovieForm() {
         value={poster}
         onChange={(evt) => setPoster(evt.target.value)}
       />
-      <input
-        type="text"
-        placeholder="description"
-        value={description}
-        onChange={(evt) => setDescription(evt.target.value)}
-      />
 
       {/* drop down with genre names */}
       <select
@@ -61,7 +63,27 @@ function MovieForm() {
           );
         })}
       </select>
+      {/* end drop down with genre names */}
+      <br></br>
 
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="standard-textarea"
+          label="Description"
+          multiline
+          variant="standard"
+          value={description}
+          onChange={(evt) => setDescription(evt.target.value)}
+        />
+      </Box>
+      <br></br>
       <button onClick={handleClick}>Add Movie!</button>
       <button onClick={home}>Back to Movies</button>
     </div>
