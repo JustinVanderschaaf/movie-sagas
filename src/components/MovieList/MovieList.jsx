@@ -31,7 +31,7 @@ function MovieList() {
   }, []);
 
   const handleSelectMovie = (movie) => {
-    // store selected pet object in Redux
+    // store selected movie object in Redux
     dispatch({ type: "SET_SELECTED_MOVIE", payload: movie });
     // go to details view
     history.push("/details");

@@ -6,19 +6,14 @@ import Grid from "@mui/material/Grid";
 
 function GenresList() {
   // Store access, dispatch hook
-  const genres = useSelector((store) => store.genres);
+  const genres = useSelector((store) => store.SelectedGenres);
   const dispatch = useDispatch();
 
   return (
     <div className="genresCont">
-      <h2>Genres</h2>
+      <h2>GENRES</h2>
       {genres.map((gen) => {
-        return (
-          <h3 className="genres" key={gen.name}>
-            {" "}
-            {gen.name}{" "}
-          </h3>
-        );
+        return <h3 className="genres"key={gen.name}> {gen.name} </h3>;
       })}
     </div>
   );
