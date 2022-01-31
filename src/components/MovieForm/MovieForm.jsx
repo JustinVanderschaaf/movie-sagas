@@ -6,10 +6,30 @@ import { useHistory } from "react-router-dom";
 //MUI import
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import { red } from "@mui/material/colors";
+import { green } from "@mui/material/colors";
 
 function MovieForm() {
   const dispatch = useDispatch();
   let history = useHistory();
+
+  const SaveButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(green[600]),
+    backgroundColor: green[900],
+    "&:hover": {
+      backgroundColor: green[500],
+    },
+  }));
+  const CancelButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(red[500]),
+    backgroundColor: red[900],
+    "&:hover": {
+      backgroundColor: red[500],
+    },
+  }));
 
   const genres = useSelector((store) => store.genres);
   let [title, setTitle] = useState("");
@@ -32,23 +52,40 @@ function MovieForm() {
   }
 
   return (
+    //input for title and url
     <div>
       <h2>Add Movie</h2>
-      <input
-        type="text"
-        placeholder="title"
-        value={title}
-        onChange={(evt) => setTitle(evt.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="poster URL"
-        value={poster}
-        onChange={(evt) => setPoster(evt.target.value)}
-      />
-
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "25ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
+          type="text"
+          placeholder="title"
+          value={title}
+          onChange={(evt) => setTitle(evt.target.value)}
+        />
+        <TextField
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
+          type="text"
+          placeholder="poster URL"
+          value={poster}
+          onChange={(evt) => setPoster(evt.target.value)}
+        />
+      </Box>
+      {/* end input for title and url */}
       {/* drop down with genre names */}
       <select
+        id="select"
         value={genre_id}
         onChange={(evt) => setGenre_id(evt.target.value)}
       >
@@ -84,8 +121,14 @@ function MovieForm() {
         />
       </Box>
       <br></br>
-      <button onClick={handleClick}>Add Movie!</button>
-      <button onClick={home}>Back to Movies</button>
+      <Stack id="buttonBox" spacing={2} direction="row">
+        <SaveButton id="save" onClick={handleClick} variant="contained">
+          Save Movie!
+        </SaveButton>
+        <CancelButton id="cancel" onClick={home} variant="contained">
+          Cancel
+        </CancelButton>
+      </Stack>
     </div>
   );
 }

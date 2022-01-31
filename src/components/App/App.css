@@ -91,6 +91,33 @@ body {
   line-height: 20px;
 }
 #standard-textarea {
-  color: white;
-  
+  color: rgb(253, 253, 236);
+}
+#outlined-basic {
+  color: rgb(253, 253, 236);
+}
+
+#select {
+  background-color: rgb(97, 8, 8);
+  color: rgb(253, 253, 236);
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+#cancel {
+  font-family: cursive;
+  font-size: 20px;
+  margin-left: 60px;
+}
+#save {
+  font-family: cursive;
+  font-size: 20px;
+}
+
+#buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
